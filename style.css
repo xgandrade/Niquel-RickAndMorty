@@ -6,6 +6,11 @@ h1 {
 	text-align: center;
 }
 
+h4 {
+	margin-left: 570px;
+	margin-top: 0px;
+}
+
 a {
 	color: #000000;
 }
@@ -70,6 +75,11 @@ a:hover {
 
 #valor {
 	margin-left: 550px;
+}
+
+.inicio {
+	margin-left: 570px;
+	margin-top: 0px;
 }
 
 #slot1 {
