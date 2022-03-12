@@ -44,7 +44,7 @@
 			function verificaPremio() {
 				//verifica se ganhou algum pr�mio
 				
-				//inicio dos pr�mios menores
+				//inicio dos prêmios menores
 				if (slt1 == 1 && slt2 == 2 && slt3 == 3 && slt4 == 4){
 					aposta = parseInt(aposta);
 					credito = credito + (aposta * 2);
@@ -212,7 +212,7 @@
 					document.getElementById('credito').value = 'R$ ' + credito;
 					window.alert("Parabéns, você ganhou um prêmio de R$ " + aposta * 2 + ".");
 				}
-				//fim dos pr�mios menores
+				//fim dos premios menores
 				
 				//inicio dos premios maiores
 				if (slt1 == 1 && slt2 == 1 && slt3 == 1 && slt4 == 1){
@@ -270,15 +270,15 @@
 							slt1 = 1;
 							break;
 							case 2:
-							cont=setTimeout("document.getElementById('escud1').src = 'img/flamengo.png'", 4000);
+							cont=setTimeout("document.getElementById('escud1').src = 'img/rick.png'", 4000);
 							slt1 = 2;
 							break;
 							case 3:
-							cont=setTimeout("document.getElementById('escud1').src = 'img/fluminense.png'", 4000);
+							cont=setTimeout("document.getElementById('escud1').src = 'img/morty.png'", 4000);
 							slt1 = 3;
 							break;
 							case 4:
-							cont=setTimeout("document.getElementById('escud1').src = 'img/vasco.png'", 4000);
+							cont=setTimeout("document.getElementById('escud1').src = 'img/summer.png'", 4000);
 							slt1 = 4;
 							break;
 						}
@@ -291,15 +291,15 @@
 							slt2 = 1;
 							break;
 							case 2:
-							cont=setTimeout("document.getElementById('escud2').src = 'img/flamengo.png'", 6000);
+							cont=setTimeout("document.getElementById('escud2').src = 'img/rick.png'", 6000);
 							slt2 = 2;
 							break;
 							case 3:
-							cont=setTimeout("document.getElementById('escud2').src = 'img/fluminense.png'", 6000);
+							cont=setTimeout("document.getElementById('escud2').src = 'img/morty.png'", 6000);
 							slt2 = 3;
 							break;
 							case 4:
-							cont=setTimeout("document.getElementById('escud2').src = 'img/vasco.png'", 6000);
+							cont=setTimeout("document.getElementById('escud2').src = 'img/summer.png'", 6000);
 							slt2 = 4;
 							break;
 						}
@@ -312,15 +312,15 @@
 							slt3 = 1;
 							break;
 							case 2:
-							cont=setTimeout("document.getElementById('escud3').src = 'img/flamengo.png'", 7000);
+							cont=setTimeout("document.getElementById('escud3').src = 'img/rick.png'", 7000);
 							slt3 = 2;
 							break;
 							case 3:
-							cont=setTimeout("document.getElementById('escud3').src = 'img/fluminense.png'", 7000);
+							cont=setTimeout("document.getElementById('escud3').src = 'img/morty.png'", 7000);
 							slt3 = 3;
 							break;
 							case 4:
-							cont=setTimeout("document.getElementById('escud3').src = 'img/vasco.png'", 7000);
+							cont=setTimeout("document.getElementById('escud3').src = 'img/summer.png'", 7000);
 							slt3 = 4;
 							break;
 						}
@@ -333,15 +333,15 @@
 							slt4 = 1;
 							break;
 							case 2:
-							cont=setTimeout("document.getElementById('escud4').src = 'img/flamengo.png'", 8000);
+							cont=setTimeout("document.getElementById('escud4').src = 'img/rick.png'", 8000);
 							slt4 = 2;
 							break;
 							case 3:
-							cont=setTimeout("document.getElementById('escud4').src = 'img/fluminense.png'", 8000);
+							cont=setTimeout("document.getElementById('escud4').src = 'img/morty.png'", 8000);
 							slt4 = 3;
 							break;
 							case 4:
-							cont=setTimeout("document.getElementById('escud4').src = 'img/vasco.png'", 8000);
+							cont=setTimeout("document.getElementById('escud4').src = 'img/summer.png'", 8000);
 							slt4 = 4;
 							break;
 						}
@@ -381,13 +381,13 @@
 					<img id = "escud1" src = "img/beth.png" />
 				</div>
 				<div id = "slot2">
-					<img id = "escud2" src = "img/flamengo.png" />
+					<img id = "escud2" src = "img/rick.png" />
 				</div>
 				<div id = "slot3">
-					<img id = "escud3" src = "img/fluminense.png" />
+					<img id = "escud3" src = "img/morty.png" />
 				</div>
 				<div id = "slot4">
-					<img id = "escud4" src = "img/vasco.png" />
+					<img id = "escud4" src = "img/summer.png" />
 				</div>
 			</div>
 			
@@ -396,9 +396,9 @@
 				<img src = "img/apostamais.gif" onMouseDown="this.src='img/apostamais_p.gif';" onMouseUp="this.src='img/apostamais.gif';" onclick = "apostaMais();"/>
 				<img src = "img/jogar.gif" onMouseDown="this.src='img/jogar_p.gif';" onMouseUp="this.src='img/jogar.gif';" onclick = "jogar();"/>
 			</div>
-			
-			<div id = "rodapé">
-				<a href = "tabela.html" target='_blank'>Clique aqui para ver a Tabela de Prêmios que você poderá ganhar neste jogo!</a>
+			</br>
+			<div id = "rodape">
+				<a href = "tabela.html" class="text-align: center" target='_blank'>Clique aqui para ver a Tabela de Prêmios que você poderá ganhar neste jogo!</a>
 			</div>
 		
 		</div>
