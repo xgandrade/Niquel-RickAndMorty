@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useSlotGame from '../hooks/useSlotGame';
 import SlotReel from './SlotReel';
 import ControlPanel from './ControlPanel';
@@ -18,24 +18,6 @@ export default function SlotMachine() {
     modalState,
     setModalState,
   } = useSlotGame(0);
-
-  const [creditoParaAdicionar, setCreditoParaAdicionar] = useState('');
-
-  const adicionarCreditoHandler = () => {
-    const valor = parseInt(creditoParaAdicionar);
-    if (valor > 0) {
-      adicionarCredito(valor);
-      setCreditoParaAdicionar('');
-    } else {
-      setModalState({
-        isOpen: true,
-        type: 'error',
-        title: '❌ Valor Inválido',
-        message: 'Por favor, digite um valor numérico válido (maior que R$ 0)',
-        onConfirm: () => setModalState({ ...modalState, isOpen: false }),
-      });
-    }
-  };
 
   return (
     <div id="corpo" className="slot-machine-container">
