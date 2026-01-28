@@ -4,7 +4,7 @@ import React from 'react';
  * Componente Modal Reutilizável
  * Usado para avisos, erros e confirmações
  */
-export function Modal({
+export default function Modal({
   isOpen,
   title,
   message,

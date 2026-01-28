@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useSlotGame } from '../hooks/useSlotGame';
-import { SlotReel } from './SlotReel';
-import { ControlPanel } from './ControlPanel';
-import { CreditPanel } from './CreditPanel';
-import { Modal } from './Modal';
+import useSlotGame from '../hooks/useSlotGame';
+import SlotReel from './SlotReel';
+import ControlPanel from './ControlPanel';
+import CreditPanel from './CreditPanel';
+import Modal from './Modal';
 
-export function SlotMachine() {
+export default function SlotMachine() {
   const {
     credito,
     aposta,

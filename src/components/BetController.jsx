@@ -4,17 +4,17 @@ import React from 'react';
  * Componente de Controle de Aposta
  * Interface fluida com incremento/decremento
  */
-export function BetController({
+export default function BetController({
   aposta,
   credito,
   apostaMenos,
   apostaMais,
   isSpinning,
 }) {
-  const maxAposta = Math.min(credito, 10);
+  const maxAposta = credito;
 
   return (
-    <div className="bet-controller">
+    <div className="bet-controller" data-testid="bet-controller">
       <label className="bet-label">Valor da Aposta</label>
       
       <div className="bet-input-group">
@@ -23,17 +23,18 @@ export function BetController({
           onClick={apostaMenos}
           disabled={isSpinning || aposta <= 1}
           title="Reduzir aposta"
+          data-testid="bet-decrement"
         >
           −
         </button>
 
         <div className="bet-display">
-          <span className="bet-currency">R$</span>
           <input
             type="text"
             className="bet-value"
-            value={aposta}
+            value={`R$ ${aposta}`}
             readOnly
+            data-testid="bet-value"
           />
         </div>
 
@@ -42,6 +43,7 @@ export function BetController({
           onClick={apostaMais}
           disabled={isSpinning || aposta >= maxAposta}
           title="Aumentar aposta"
+          data-testid="bet-increment"
         >
           +
         </button>

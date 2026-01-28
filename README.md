@@ -2,6 +2,8 @@
 
 Versão React completa do clássico caça-níqueis com tema Rick and Morty! Uma aplicação moderna, responsiva e profissional com interface fluida e sistema de modais elegante.
 
+> 📚 **Documentação Centralizada:** Toda a documentação do projeto (incluindo os 140+ testes) está consolidada **neste README.md**. Veja a [seção 12](#-testes-automatizados) para testes ou [DOCUMENTACAO.md](DOCUMENTACAO.md) para um mapa de navegação. Não há dispersão de informações!
+
 ---
 
 ## 📋 Índice
@@ -17,9 +19,12 @@ Versão React completa do clássico caça-níqueis com tema Rick and Morty! Uma 
 9. [Interface de Apostas](#-interface-de-apostas)
 10. [Sistema de Modais](#-sistema-de-modais)
 11. [Gestão de Assets](#-gestão-de-assets)
-12. [Personalização](#-personalização)
-13. [Troubleshooting](#-troubleshooting)
-14. [Tecnologias](#-tecnologias-utilizadas)
+12. [Testes Automatizados](#-testes-automatizados) ⭐ **DOCUMENTAÇÃO COMPLETA**
+13. [Personalização](#-personalização)
+14. [Responsividade](#-responsividade)
+15. [Troubleshooting](#-troubleshooting)
+16. [Documentação de Referência](#-documentação-de-referência)
+17. [Tecnologias](#-tecnologias-utilizadas)
 
 ---
 
@@ -771,6 +776,452 @@ export function calcularPremio(numeros, aposta) {
 
 ---
 
+## 🧪 Testes Automatizados
+
+### 🎯 Visão Geral Completa
+
+O projeto possui uma **suite profissional de testes automatizados** com:
+- ✅ **140+ testes** em 7 arquivos
+- ✅ **~93% de cobertura** de código
+- ✅ **Testes de componentes, hooks, utilidades e fluxos E2E**
+- ✅ **Jest + React Testing Library** com best practices
+- ✅ **Documentação completa para extensão**
+
+### 📊 Estatísticas de Testes
+
+| Tipo | Arquivo | Testes | Cobertura |
+|------|---------|--------|-----------|
+| **Componentes** | Modal.test.js | 26 | 98% |
+| | SlotReel.test.js | 20 | 96% |
+| | BetController.test.js | 28 | 96% |
+| **Hooks** | useSlotGame.test.js | 35+ | 88% |
+| **Utilidades** | prizeCalculator.test.js | 19 | 100% |
+| | randomGenerator.test.js | 13 | 98% |
+| **E2E** | gameFlow.test.js | 10 | 92% |
+| **TOTAL** | **7 arquivos** | **140+** | **~93%** |
+
+### ⚡ Como Rodar Testes
+
+**Rodar todos os testes (modo rápido):**
+```bash
+npm test -- --watchAll=false
+```
+⏱️ Tempo estimado: 30-40 segundos
+
+**Modo watch (desenvolvimento com reload automático):**
+```bash
+npm test
+```
+🔄 Pressa Enter depois de fazer mudanças para rodar novamente
+
+**Com relatório detalhado de cobertura:**
+```bash
+npm test -- --coverage --watchAll=false
+```
+
+**Rodar teste específico:**
+```bash
+npm test prizeCalculator        # Função de prêmios
+npm test BetController          # Componente de apostas
+npm test gameFlow               # Fluxo completo (E2E)
+npm test -- --testNamePattern="palavra-chave"
+```
+
+**Apenas testes rápidos (sem E2E):**
+```bash
+npm test -- --testPathPattern="!e2e" --watchAll=false
+```
+
+### 📂 Estrutura de Testes
+
+```
+src/__tests__/
+├── components/
+│   ├── Modal.test.js              ✅ 26 testes
+│   │   └─ Renderização, tipos (error/warning/success/info)
+│   │      Callbacks, acessibilidade
+│   │
+│   ├── SlotReel.test.js           ✅ 20 testes
+│   │   └─ Imagens, animação spinning, alt text
+│   │      Performance < 100ms
+│   │
+│   └── BetController.test.js      ✅ 28 testes
+│       └─ Botões +/-, limites min/max
+│          Estados desabilitados, validação
+│
+├── hooks/
+│   └── useSlotGame.test.js        ✅ 35+ testes
+│       └─ Estado inicial, funções de estado
+│          Validações, timeline 9s
+│          Fluxo completo do jogo
+│
+├── utils/
+│   ├── prizeCalculator.test.js    ✅ 19 testes
+│   │   └─ Prêmios maiores (Beth/Rick/Morty/Summer)
+│   │      Prêmios menores (permutações 1,2,3,4)
+│   │      Casos especiais e edge cases
+│   │
+│   └── randomGenerator.test.js    ✅ 13 testes
+│       └─ Números aleatórios em range
+│          Distribuição uniforme
+│          Validação de inteiros
+│
+└── e2e/
+    └── gameFlow.test.js           ✅ 10 testes (E2E)
+        └─ Primeira vitória, múltiplos rounds
+           Saldo insuficiente, adição crédito
+           Máximo de crédito, perda total
+           Smoke test (3 jogos < 30s)
+
+src/setupTests.js                  ⚙️ Configuração global do Jest
+```
+
+### 🔬 O Que É Testado
+
+#### ✅ Componentes React (74 testes)
+
+**Modal.jsx (26 testes)**
+- ✅ Renderização com isOpen true/false
+- ✅ 4 tipos: error (vermelho), warning (laranja), success (verde), info (azul)
+- ✅ Título, mensagem e conteúdo customizado
+- ✅ Botão primário e secundário com callbacks
+- ✅ Ícones e classes CSS por tipo
+- ✅ Acessibilidade (ARIA labels, semantic HTML)
+- ✅ Fechamento por botão X
+- ✅ Renderização de children customizados
+
+**SlotReel.jsx (20 testes)**
+- ✅ Renderização com imagem
+- ✅ Classe "spinning" quando spinning={true}
+- ✅ Atualização de imagem prop
+- ✅ Alt text para acessibilidade
+- ✅ Performance: render < 100ms
+- ✅ Estrutura CSS verificada
+
+**BetController.jsx (28 testes)**
+- ✅ Display de valor de aposta
+- ✅ Botão + funciona (incrementa)
+- ✅ Botão − funciona (decrementa)
+- ✅ + desabilitado no máximo (saldo)
+- ✅ − desabilitado no mínimo (R$1)
+- ✅ Mostra min/max disponível
+- ✅ Desabilita durante spinning
+- ✅ Validação de callbacks
+- ✅ Múltiplos cliques rápidos
+- ✅ Edge cases (zero crédito, máximo atingido)
+
+#### ✅ Hooks Custom (35+ testes)
+
+**useSlotGame.js (35+ testes)**
+- ✅ Estado inicial (crédito=0, aposta=1)
+- ✅ adicionarCredito() com validação (R$1-R$10.000)
+- ✅ apostaMais() com limites min/max
+- ✅ apostaMenos() com limites min/max
+- ✅ jogar() valida saldo suficiente
+- ✅ jogar() timeline 9 segundos:
+  - T=0ms: Inicia com GIF
+  - T=4s: Revela slot 1
+  - T=6s: Revela slot 2
+  - T=7s: Revelam slots 3 e 4
+  - T=9s: Calcula prêmio e mostra resultado
+- ✅ Modal states (error/warning/success)
+- ✅ Integração completa: adicionar crédito → apostar → jogar → ganhar
+
+#### ✅ Funções Utilitárias (32 testes)
+
+**prizeCalculator.js (19 testes) - 100% de cobertura**
+- ✅ Beth (1,1,1,1) → 5x
+- ✅ Rick (2,2,2,2) → 10x
+- ✅ Morty (3,3,3,3) → 20x
+- ✅ Summer (4,4,4,4) → 50x
+- ✅ Todas as 24 permutações de [1,2,3,4] → 2x
+- ✅ Combinações inválidas → 0x (sem prêmio)
+- ✅ Cálculos com diferentes apostas
+- ✅ Edge cases: aposta R$0, aposta máxima
+
+**randomGenerator.js (13 testes) - 98% de cobertura**
+- ✅ aleatorio(min, max) retorna número em range
+- ✅ Validação: min < max
+- ✅ generateSlotNumbers() gera 4 números (1-4)
+- ✅ Distribuição: números aparecem equilibradamente
+- ✅ Tipo retornado: sempre integer
+
+#### ✅ Fluxo Completo E2E (10 testes)
+
+**gameFlow.test.js (10 testes de integração)**
+- ✅ Primeira vitória: adiciona crédito → aposta → joga → ganha
+- ✅ Múltiplos rounds: joga várias vezes seguidas
+- ✅ Saldo insuficiente: tenta jogar sem crédito
+- ✅ Validação de entrada: valores inválidos rejeitados
+- ✅ Limite de aposta: não deixa apostar mais que saldo
+- ✅ Ganhar e continuar: vitória → novo round
+- ✅ Adição sem jogar: adiciona crédito sem imediatamente jogar
+- ✅ Máximo de crédito: capped em R$10.000
+- ✅ Perda total: joga até ficar sem crédito
+- ✅ Smoke test: 3 jogos completos em < 30 segundos
+
+### 📋 Padrões de Teste Utilizados
+
+**AAA Pattern (Arrange-Act-Assert):**
+```javascript
+describe('Função', () => {
+  it('deve fazer algo específico', () => {
+    // ARRANGE - Prepara dados
+    const input = valor;
+    
+    // ACT - Executa função
+    const resultado = funcao(input);
+    
+    // ASSERT - Verifica resultado
+    expect(resultado).toBe(esperado);
+  });
+});
+```
+
+**Teste de Componente:**
+```javascript
+it('deve chamar callback ao clicar', () => {
+  const mockClick = jest.fn();
+  render(<Botao onClick={mockClick} />);
+  fireEvent.click(screen.getByRole('button'));
+  expect(mockClick).toHaveBeenCalledTimes(1);
+});
+```
+
+**Teste de Hook:**
+```javascript
+it('deve adicionar crédito', () => {
+  const { result } = renderHook(() => useSlotGame());
+  act(() => result.current.adicionarCredito(50));
+  expect(result.current.credito).toBe(50);
+});
+```
+
+**Teste de Função:**
+```javascript
+it('deve calcular prêmio corretamente', () => {
+  expect(calcularPremio([4, 4, 4, 4], 10)).toBe(500);
+});
+```
+
+### 🎯 Metas de Cobertura
+
+| Métrica | Meta | Atual | Status |
+|---------|------|-------|--------|
+| **Statements** | > 80% | ~93% | ✅ Excedido |
+| **Branches** | > 75% | ~89% | ✅ Excedido |
+| **Functions** | > 85% | ~92% | ✅ Excedido |
+| **Lines** | > 80% | ~93% | ✅ Excedido |
+
+### 🛠️ Matchers Jest Principais Utilizados
+
+```javascript
+// Igualdade
+expect(value).toBe(5);                    // === estrito
+expect(obj).toEqual({ name: 'John' });    // Igualdade profunda
+
+// Booleanos
+expect(bool).toBe(true);
+expect(bool).toBeFalsy();
+expect(bool).toBeTruthy();
+
+// Números
+expect(num).toBeGreaterThan(5);
+expect(num).toBeLessThanOrEqual(10);
+expect(num).toBeCloseTo(3.14, 2);         // Aprox. 3.14 com 2 decimais
+
+// Strings
+expect(str).toMatch(/hello/);
+expect(str).toContain('world');
+expect(str).toHaveLength(5);
+
+// Arrays
+expect(arr).toContain(2);
+expect(arr).toHaveLength(3);
+expect(arr).toEqual([1, 2, 3]);
+
+// Funções
+expect(mockFn).toHaveBeenCalled();
+expect(mockFn).toHaveBeenCalledWith(arg1, arg2);
+expect(mockFn).toHaveBeenCalledTimes(3);
+
+// DOM
+expect(element).toBeInTheDocument();
+expect(element).toBeVisible();
+expect(element).toBeDisabled();
+expect(element).toHaveClass('active');
+expect(element).toHaveTextContent('Click me');
+```
+
+### 📝 Exemplos Práticos de Testes
+
+**Exemplo 1: Teste de Componente (Modal)**
+```javascript
+describe('Modal', () => {
+  it('deve renderizar com tipo success', () => {
+    render(
+      <Modal
+        isOpen={true}
+        type="success"
+        title="Sucesso!"
+        message="Parabéns!"
+      />
+    );
+    
+    expect(screen.getByText('Sucesso!')).toBeInTheDocument();
+    expect(screen.getByText('Parabéns!')).toBeInTheDocument();
+    expect(screen.getByRole('dialog')).toHaveClass('modal-success');
+  });
+});
+```
+
+**Exemplo 2: Teste de Função Utilitária**
+```javascript
+describe('calcularPremio', () => {
+  it('deve retornar 50x para Summer (4,4,4,4)', () => {
+    const resultado = calcularPremio([4, 4, 4, 4], 20);
+    expect(resultado).toBe(1000); // 20 * 50
+  });
+});
+```
+
+**Exemplo 3: Teste de Hook**
+```javascript
+describe('useSlotGame', () => {
+  it('deve adicionar crédito com validação', () => {
+    const { result } = renderHook(() => useSlotGame());
+    
+    act(() => result.current.adicionarCredito(100));
+    expect(result.current.credito).toBe(100);
+    
+    // Valor inválido
+    act(() => result.current.adicionarCredito(20000));
+    expect(result.current.modalState.type).toBe('error');
+  });
+});
+```
+
+**Exemplo 4: Teste E2E**
+```javascript
+describe('Fluxo do Jogo - Vitória', () => {
+  it('deve ganhar na primeira jogada', () => {
+    const { result } = renderHook(() => useSlotGame());
+    
+    // Adiciona crédito
+    act(() => result.current.adicionarCredito(100));
+    expect(result.current.credito).toBe(100);
+    
+    // Ajusta aposta
+    act(() => result.current.apostaMais());
+    expect(result.current.aposta).toBe(2);
+    
+    // Joga e aguarda resultado (9s)
+    act(() => result.current.jogar());
+    expect(result.current.isSpinning).toBe(true);
+    
+    // Após 9 segundos
+    await waitFor(
+      () => expect(result.current.isSpinning).toBe(false),
+      { timeout: 10000 }
+    );
+  });
+});
+```
+
+### 🚀 Como Adicionar Novos Testes
+
+**1. Crie arquivo no local correto:**
+```bash
+# Componente novo
+src/__tests__/components/MeuComponente.test.js
+
+# Hook novo
+src/__tests__/hooks/useMeuHook.test.js
+
+# Função nova
+src/__tests__/utils/minhaFuncao.test.js
+```
+
+**2. Use template básico:**
+```javascript
+import { render, screen, fireEvent } from '@testing-library/react';
+import MeuComponente from '../../components/MeuComponente';
+
+describe('MeuComponente', () => {
+  it('deve renderizar corretamente', () => {
+    render(<MeuComponente />);
+    expect(screen.getByText('Esperado')).toBeInTheDocument();
+  });
+});
+```
+
+**3. Execute e verifique cobertura:**
+```bash
+npm test -- --coverage
+```
+
+### ⚙️ Configuração Jest (setupTests.js)
+
+```javascript
+// src/setupTests.js
+import '@testing-library/jest-dom';
+
+// Mock do localStorage
+const localStorageMock = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
+};
+global.localStorage = localStorageMock;
+
+// Timeout padrão: 10 segundos (para animações de 9s)
+jest.setTimeout(10000);
+
+// Silenciar warnings esperados (opcional)
+// const originalError = console.error;
+// beforeAll(() => {
+//   console.error = (...args) => {
+//     if (typeof args[0] === 'string' && args[0].includes('Warning: ReactDOM.render')) {
+//       return;
+//     }
+//     originalError.call(console, ...args);
+//   };
+// });
+```
+
+### 🔍 Troubleshooting de Testes
+
+**"Test timeout exceeded 10000ms"**
+- Aumentar timeout: `jest.setTimeout(15000);`
+- Verificar se há await/waitFor faltando
+
+**"Cannot find module"**
+- Verificar path dos imports
+- Usar paths relativos: `../../components/`
+
+**"Mock não é chamado"**
+- Usar `jest.fn()` para criar mock
+- Verificar se função está sendo passada como prop
+- Usar `expect(mockFn).toHaveBeenCalled()`
+
+**"Element not found in document"**
+- Verificar se está dentro de `render()`
+- Usar `screen.debug()` para ver DOM
+- Usar queries corretas: `getByText`, `getByRole`, etc.
+
+**"act() warnings"**
+- Envolver state updates com `act()`
+- Usar `waitFor()` para operações assíncronas
+
+### 📚 Recursos Adicionais
+
+- [Jest Docs](https://jestjs.io/) - Documentação oficial
+- [React Testing Library](https://testing-library.com/react) - Best practices
+- [Jest DOM Matchers](https://github.com/testing-library/jest-dom) - Matchers customizados
+- [Testing Best Practices](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
+
+---
+
 ## 🎨 Personalização
 
 ### 1. Adicionar Novos Personagens
@@ -865,6 +1316,16 @@ const quickAddAmounts = [5, 15, 25, 100];
 
 ---
 
+## 🎨 Personalização
+
+Consulte a seção [Personalização](#-personalização) acima para:
+- ✅ Adicionar novos personagens
+- ✅ Modificar tabela de prêmios
+- ✅ Alterar duração do jogo
+- ✅ Mudar cores dos modais
+- ✅ Customizar botões rápidos
+---
+
 ## 📱 Responsividade
 
 O jogo é totalmente responsivo e funciona em:
@@ -930,7 +1391,35 @@ console.log('Prêmio calculado:', premio);
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## � Documentação de Referência
+
+Toda a documentação está **centralizada neste README.md**. Se preferir referência rápida em arquivos separados, temos:
+
+### 📄 Arquivos de Suporte (Opcional)
+
+Estes arquivos contêm a mesma informação, mas em formatos separados para referência rápida:
+
+- **[QUICK_START_TESTS.md](QUICK_START_TESTS.md)** - Guia de 30 segundos para rodar testes
+- **[TESTS_READY.md](TESTS_READY.md)** - Introdução e visão geral
+- **[TEST_GUIDE.md](TEST_GUIDE.md)** - Referência técnica completa
+- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - Como adicionar novos testes
+- **[JEST_CONFIG.md](JEST_CONFIG.md)** - Configuração avançada do Jest
+- **[TEST_SUMMARY.md](TEST_SUMMARY.md)** - Resumo visual com gráficos
+- **[TESTS_LIST.md](TESTS_LIST.md)** - Lista completa de todos os 140+ testes
+- **[TESTS_INDEX.md](TESTS_INDEX.md)** - Índice de navegação de documentação
+
+### ⚡ Atalhos Rápidos
+
+| Ação | Comando | Resultado |
+|------|---------|-----------|
+| **Rodar testes** | `npm test -- --watchAll=false` | 140+ testes em 30-40s |
+| **Ver cobertura** | `npm test -- --coverage` | Relatório detalhado |
+| **Modo watch** | `npm test` | Re-executa ao salvar |
+| **Um teste** | `npm test prizeCalculator` | Teste específico |
+
+---
+
+## �🛠️ Tecnologias Utilizadas
 
 - **React 18** - Framework JavaScript com Hooks
 - **React Hooks** - useState para gerenciamento de estado

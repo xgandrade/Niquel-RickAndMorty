@@ -34,6 +34,23 @@ const MINOR_PRIZES = {
   '4321': 2,
 };
 
+export function calcularPremio(numeros, aposta) {
+  const combinacao = numeros.join('');
+  
+  // Verifica prêmios maiores
+  if (MAJOR_PRIZES[combinacao]) {
+    return aposta * MAJOR_PRIZES[combinacao];
+  }
+  
+  // Verifica prêmios menores
+  if (MINOR_PRIZES[combinacao]) {
+    return aposta * MINOR_PRIZES[combinacao];
+  }
+  
+  // Sem prêmio
+  return 0;
+}
+
 export function verificaPremio(slt1, slt2, slt3, slt4, aposta) {
   const combinacao = `${slt1}${slt2}${slt3}${slt4}`;
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { BetController } from './BetController';
+import BetController from './BetController';
 
-export function ControlPanel({
+export default function ControlPanel({
   credito,
   aposta,
   apostaMenos,

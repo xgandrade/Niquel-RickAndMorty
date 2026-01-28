@@ -7,7 +7,7 @@ import React, { useState } from 'react';
  * 2. Campo customizado
  * 3. Modal para entrada detalhada
  */
-export function CreditPanel({
+export default function CreditPanel({
   credito,
   onAdicionarCredito,
   isSpinning,

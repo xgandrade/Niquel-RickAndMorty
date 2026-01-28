@@ -3,7 +3,7 @@ import { generateSlotNumbers } from '../utils/randomGenerator';
 import { verificaPremio } from '../utils/prizeCalculator';
 import { IMAGE_PATHS, CHARACTERS_IMAGES } from '../utils/imagePaths';
 
-export function useSlotGame(initialCredit = 0) {
+export default function useSlotGame(initialCredit = 0) {
   const [credito, setCredito] = useState(initialCredit);
   const [aposta, setAposta] = useState(1);
   const [slots, setSlots] = useState({ slot1: 1, slot2: 2, slot3: 3, slot4: 4 });
