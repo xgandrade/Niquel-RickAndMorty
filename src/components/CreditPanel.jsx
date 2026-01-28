@@ -15,8 +15,6 @@ export default function CreditPanel({
   const [mostrarModal, setMostrarModal] = useState(false);
   const [creditoInput, setCreditoInput] = useState('');
 
-  const valoresPredefinidos = [10, 20, 50, 100];
-
   const handleAdicionarValorPredefinido = (valor) => {
     onAdicionarCredito(valor);
   };

@@ -11,7 +11,6 @@ export default function SlotMachine() {
     aposta,
     slotImages,
     isSpinning,
-    resultado,
     apostaMenos,
     apostaMais,
     jogar,
@@ -20,15 +19,13 @@ export default function SlotMachine() {
     setModalState,
   } = useSlotGame(0);
 
-  const [mostrarModal, setMostrarModal] = useState(false);
   const [creditoParaAdicionar, setCreditoParaAdicionar] = useState('');
 
-  const handleAdicionarCredito = () => {
+  const adicionarCreditoHandler = () => {
     const valor = parseInt(creditoParaAdicionar);
     if (valor > 0) {
       adicionarCredito(valor);
       setCreditoParaAdicionar('');
-      setMostrarModal(false);
     } else {
       setModalState({
         isOpen: true,
