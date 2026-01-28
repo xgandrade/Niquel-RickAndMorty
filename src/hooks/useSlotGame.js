@@ -25,13 +25,14 @@ export default function useSlotGame(initialCredit = 0) {
 
   const apostaMenos = () => {
     if (aposta > 1) {
-      setAposta(aposta - 1);
+      setAposta(Math.max(1, aposta - 5));
     }
   };
 
   const apostaMais = () => {
-    if (aposta < 10) {
-      setAposta(aposta + 1);
+    const maxAposta = credito;
+    if (aposta < maxAposta) {
+      setAposta(Math.min(maxAposta, aposta + 5));
     }
   };
 
@@ -77,32 +78,32 @@ export default function useSlotGame(initialCredit = 0) {
     setTimeout(() => {
       setSlotImages((prev) => ({
         ...prev,
-        slot1: getImagePath(numeros.slot1),
+        slot1: getImagePath(numeros[0]),
       }));
     }, 4000);
 
     setTimeout(() => {
       setSlotImages((prev) => ({
         ...prev,
-        slot2: getImagePath(numeros.slot2),
+        slot2: getImagePath(numeros[1]),
       }));
     }, 6000);
 
     setTimeout(() => {
       setSlotImages((prev) => ({
         ...prev,
-        slot3: getImagePath(numeros.slot3),
-        slot4: getImagePath(numeros.slot4),
+        slot3: getImagePath(numeros[2]),
+        slot4: getImagePath(numeros[3]),
       }));
     }, 7000);
 
     // Verifica prêmio e finaliza
     setTimeout(() => {
       const premioInfo = verificaPremio(
-        numeros.slot1,
-        numeros.slot2,
-        numeros.slot3,
-        numeros.slot4,
+        numeros[0],
+        numeros[1],
+        numeros[2],
+        numeros[3],
         aposta
       );
 
