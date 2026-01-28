@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Niquel-RickAndMorty/static/css/main.756c2e55.css",
-    "main.js": "/Niquel-RickAndMorty/static/js/main.bffef168.js",
+    "main.css": "/Niquel-RickAndMorty/static/css/main.8fd4fd9d.css",
+    "main.js": "/Niquel-RickAndMorty/static/js/main.82694e70.js",
     "static/media/beth.png": "/Niquel-RickAndMorty/static/media/beth.d6341da5f49ffce32dbd.png",
     "static/media/roleta.gif": "/Niquel-RickAndMorty/static/media/roleta.1549113f5da0330cdabb.gif",
     "index.html": "/Niquel-RickAndMorty/index.html",
-    "main.756c2e55.css.map": "/Niquel-RickAndMorty/static/css/main.756c2e55.css.map",
-    "main.bffef168.js.map": "/Niquel-RickAndMorty/static/js/main.bffef168.js.map"
+    "main.8fd4fd9d.css.map": "/Niquel-RickAndMorty/static/css/main.8fd4fd9d.css.map",
+    "main.82694e70.js.map": "/Niquel-RickAndMorty/static/js/main.82694e70.js.map"
   },
   "entrypoints": [
-    "static/css/main.756c2e55.css",
-    "static/js/main.bffef168.js"
+    "static/css/main.8fd4fd9d.css",
+    "static/js/main.82694e70.js"
   ]
 }
