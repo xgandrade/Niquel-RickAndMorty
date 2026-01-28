@@ -9,7 +9,16 @@
       content="Caça-níqueis do Rick and Morty - Um jogo divertido com personagens da série!"
     />
     <title>NIQUEL - Rick and Morty Slot Machine</title>
-
+    <script type="text/javascript">
+      // Handle single page apps redirected from 404.html
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>Você precisa habilitar JavaScript para executar este aplicativo.</noscript>
