@@ -16,7 +16,6 @@ export default function SlotMachine() {
     jogar,
     adicionarCredito,
     modalState,
-    setModalState,
   } = useSlotGame(0);
 
   return (
